@@ -1,8 +1,8 @@
 extends RigidBody2D
 
-@export var speed: float = 600.0
-@export var gravity: float = 1.0
-var thrown_direction
+var thrown_direction: Vector2 = Vector2.ZERO
+var speed
 
-func _process(delta: float) -> void:
-	position -= thrown_direction * speed * delta
+func _ready() -> void:
+	#linear_velocity = thrown_direction * speed
+	pass

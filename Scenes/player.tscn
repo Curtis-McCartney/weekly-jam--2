@@ -52,7 +52,9 @@ size = Vector2(64, 64)
 script = ExtResource("1_cvnsp")
 
 [node name="Paint_Pot_Spawner" type="Node2D" parent="."]
+position = Vector2(-1, 1)
 script = ExtResource("2_fkybt")
+paint_can_speed = 450.0
 
 [node name="Player_Animated_Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
