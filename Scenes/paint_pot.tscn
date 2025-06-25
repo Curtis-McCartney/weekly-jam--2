@@ -8,6 +8,8 @@
 [node name="Paint_Pot" type="RigidBody2D"]
 collision_layer = 0
 collision_mask = 0
+mass = 0.001
+gravity_scale = 0.0
 script = ExtResource("1_d6j7m")
 
 [node name="Paint_Pot_Sprite" type="Sprite2D" parent="."]

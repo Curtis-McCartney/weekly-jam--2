@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjvvw4wiqfvkm"]
+[gd_scene load_steps=11 format=3 uid="uid://cjvvw4wiqfvkm"]
 
 [ext_resource type="Script" uid="uid://3rvwq1ip1tah" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://24rra1lkjdbn" path="res://Scripts/paint_pot_spawner.gd" id="2_fkybt"]
 [ext_resource type="Texture2D" uid="uid://cnctn6b6e5bmb" path="res://Assets/player_blue.png" id="2_vgqql"]
 [ext_resource type="Texture2D" uid="uid://dnnox2gglg1u3" path="res://Assets/player_red.png" id="3_fkybt"]
 [ext_resource type="Texture2D" uid="uid://u5snetcj4nj1" path="res://Assets/player_yellow.png" id="4_x3wgy"]
@@ -50,7 +51,11 @@ size = Vector2(64, 64)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_cvnsp")
 
+[node name="Paint_Pot_Spawner" type="Node2D" parent="."]
+script = ExtResource("2_fkybt")
+
 [node name="Player_Animated_Sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_v0iea")
 animation = &"Red"
 

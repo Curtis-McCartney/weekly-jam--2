@@ -11,7 +11,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
-paint_gravity_scale = 1.0
 
 [node name="World_Border" parent="." instance=ExtResource("2_8gbba")]
 
