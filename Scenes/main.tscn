@@ -12,6 +12,7 @@ position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
 collision_layer = 0
+current_player_colour = 1
 currently_held_paint_can = 1
 
 [node name="World_Border" parent="." instance=ExtResource("2_8gbba")]

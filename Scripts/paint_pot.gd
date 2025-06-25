@@ -16,10 +16,12 @@ func _ready():
 			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_YELLOW_WALL
 		Enums.Paint_Colour.YELLOW:
 			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_BLUE_WALL
-
+	
 	# Temporarily avoid colliding with the player who threw this
 	collision_mask &= ~LAYER_PLAYER
 	await get_tree().create_timer(0.5).timeout
+	if get_tree().current_scene.find_child("Player").current_player_colour == paint_colour:
+		return
 	collision_mask |= LAYER_PLAYER
 
 func hit_wall(wall: Node):

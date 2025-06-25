@@ -16,6 +16,17 @@ func _ready() -> void:
 	currently_held_paint_can = Enums.Paint_Colour.RED
 	change_player_colour(Enums.Paint_Colour.RED)
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("One"):
+		currently_held_paint_can = Enums.Paint_Colour.RED
+	
+	if Input.is_action_just_pressed("Two"):
+		currently_held_paint_can = Enums.Paint_Colour.BLUE
+	
+	if Input.is_action_just_pressed("Three"):
+		currently_held_paint_can = Enums.Paint_Colour.YELLOW
+	
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -37,6 +48,9 @@ func _physics_process(delta: float) -> void:
 
 func change_player_colour(new_player_colour: Enums.Paint_Colour):
 	match new_player_colour:
+		Enums.Paint_Colour.NONE:
+			printerr("Changed player colour to none??")
+			return
 		Enums.Paint_Colour.RED:
 			animated_sprite.play("Red")
 			collision_layer = LAYER_PLAYER
@@ -49,3 +63,4 @@ func change_player_colour(new_player_colour: Enums.Paint_Colour):
 			animated_sprite.play("Yellow")
 			collision_layer = LAYER_PLAYER
 			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_BLUE_WALL
+	current_player_colour = new_player_colour
