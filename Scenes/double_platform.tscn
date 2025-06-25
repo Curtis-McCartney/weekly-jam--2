@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://e4p7ammoag8a"]
+[gd_scene load_steps=8 format=3 uid="uid://e4p7ammoag8a"]
 
 [ext_resource type="Texture2D" uid="uid://cw5mhf6njao06" path="res://Assets/double_platform_spritesheet.png" id="1_7cd1g"]
+[ext_resource type="Script" uid="uid://dw1voxlmilgk6" path="res://Scripts/double_platform.gd" id="1_akck2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n5262"]
 atlas = ExtResource("1_7cd1g")
@@ -44,7 +45,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrs20"]
 size = Vector2(128, 64)
 
-[node name="Double_Platform" type="StaticBody2D"]
+[node name="Platform" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+mass = 0.001
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_akck2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h2w5h")
@@ -52,3 +60,5 @@ animation = &"Blue"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mrs20")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -4,8 +4,12 @@ extends CharacterBody2D
 @export var jump_velocity = -400.0
 @onready var animated_sprite: AnimatedSprite2D = %Player_Animated_Sprite
 
+@export var current_player_colour: Enums.Paint_Colour
+@export var currently_held_paint_can: Enums.Paint_Colour
+
 func _ready() -> void:
-	pass
+	currently_held_paint_can = Enums.Paint_Colour.RED
+	change_player_colour(Enums.Paint_Colour.RED)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -25,3 +29,22 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
+
+func change_player_colour(colour_to_change_to) -> void:
+	current_player_colour = colour_to_change_to
+	
+	var MASK_BLACK_WALL := 1 << 0
+	var MASK_RED := 1 << 1
+	var MASK_BLUE := 1 << 2
+	var MASK_YELLOW := 1 << 3
+	
+	match current_player_colour:
+		Enums.Paint_Colour.RED:
+			collision_mask = MASK_BLUE | MASK_YELLOW | MASK_BLACK_WALL
+			collision_layer = MASK_BLUE | MASK_YELLOW | MASK_BLACK_WALL
+		Enums.Paint_Colour.BLUE:
+			collision_mask = MASK_RED | MASK_YELLOW | MASK_BLACK_WALL
+			collision_layer = MASK_RED | MASK_YELLOW | MASK_BLACK_WALL
+		Enums.Paint_Colour.YELLOW:
+			collision_mask = MASK_RED | MASK_BLUE | MASK_BLACK_WALL
+			collision_layer = MASK_RED | MASK_BLUE | MASK_BLACK_WALL

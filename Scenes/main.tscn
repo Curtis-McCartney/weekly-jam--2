@@ -11,8 +11,16 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
+collision_layer = 0
+currently_held_paint_can = 1
 
 [node name="World_Border" parent="." instance=ExtResource("2_8gbba")]
 
 [node name="Double_Platform" parent="." instance=ExtResource("3_jjvhh")]
 position = Vector2(0, 129)
+wall_colour = 2
+
+[node name="Double_Platform2" parent="." instance=ExtResource("3_jjvhh")]
+position = Vector2(191, 5)
+rotation = -1.57079
+wall_colour = 1

@@ -5,10 +5,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhnaa"]
 
-[node name="Paint_Pot" type="RigidBody2D"]
+[node name="Paint_Pot" type="RigidBody2D" groups=["Paint_Pot"]]
 collision_layer = 0
 collision_mask = 0
 gravity_scale = 0.6
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_d6j7m")
 
 [node name="Paint_Pot_Sprite" type="Sprite2D" parent="."]
