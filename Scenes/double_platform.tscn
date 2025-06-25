@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://e4p7ammoag8a"]
+
+[ext_resource type="Texture2D" uid="uid://cw5mhf6njao06" path="res://Assets/double_platform_spritesheet.png" id="1_7cd1g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5262"]
+atlas = ExtResource("1_7cd1g")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrs20"]
+atlas = ExtResource("1_7cd1g")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlqre"]
+atlas = ExtResource("1_7cd1g")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2w5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5262")
+}],
+"loop": false,
+"name": &"Blue",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrs20")
+}],
+"loop": false,
+"name": &"Red",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlqre")
+}],
+"loop": false,
+"name": &"Yellow",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrs20"]
+size = Vector2(128, 64)
+
+[node name="Double_Platform" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h2w5h")
+animation = &"Blue"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mrs20")
