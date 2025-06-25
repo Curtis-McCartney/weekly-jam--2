@@ -16,7 +16,7 @@ func _ready() -> void:
 	currently_held_paint_can = Enums.Paint_Colour.RED
 	change_player_colour(Enums.Paint_Colour.RED)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("One"):
 		currently_held_paint_can = Enums.Paint_Colour.RED
 	

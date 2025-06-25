@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqdcu6olaado5"]
+[gd_scene load_steps=6 format=3 uid="uid://dqdcu6olaado5"]
 
 [ext_resource type="Texture2D" uid="uid://bo36c4g70r2il" path="res://Assets/world_border.png" id="1_qa2m6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yomhl"]
+size = Vector2(674, 224.25)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qa2m6"]
-size = Vector2(674, 15.5)
+size = Vector2(674, 274)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsi5h"]
+size = Vector2(600, 289)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfsyg"]
-size = Vector2(376, 16)
+size = Vector2(518, 253)
 
 [node name="World_Border" type="Sprite2D"]
 texture = ExtResource("1_qa2m6")
@@ -14,19 +20,19 @@ texture = ExtResource("1_qa2m6")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, 177.5)
-shape = SubResource("RectangleShape2D_qa2m6")
+position = Vector2(-1, 281.875)
+shape = SubResource("RectangleShape2D_yomhl")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1, -177.75)
+position = Vector2(1, -307)
 shape = SubResource("RectangleShape2D_qa2m6")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-318, -1)
+position = Vector2(-454.5, -4.99997)
 rotation = -1.5708
-shape = SubResource("RectangleShape2D_wfsyg")
+shape = SubResource("RectangleShape2D_jsi5h")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(318, -1)
+position = Vector2(436.5, -1.00002)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_wfsyg")
