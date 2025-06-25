@@ -24,25 +24,25 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3smsa")
 }],
-"loop": true,
+"loop": false,
 "name": &"Blue",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8erm5")
 }],
-"loop": true,
+"loop": false,
 "name": &"Red",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f1ek2")
 }],
-"loop": true,
+"loop": false,
 "name": &"Yellow",
-"speed": 5.0
+"speed": 0.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
@@ -59,7 +59,7 @@ player = NodePath("..")
 [node name="Player_Animated_Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_v0iea")
-animation = &"Red"
+animation = &"Blue"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cvnsp")

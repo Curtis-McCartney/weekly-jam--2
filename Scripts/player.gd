@@ -3,13 +3,10 @@ extends CharacterBody2D
 @export var speed = 300.0
 @export var jump_velocity = -400.0
 @onready var animated_sprite: AnimatedSprite2D = %Player_Animated_Sprite
-
 @export var current_player_colour: Enums.Paint_Colour
 @export var currently_held_paint_can: Enums.Paint_Colour
 
-const LAYER_PLAYER_RED := 1 << 4
-const LAYER_PLAYER_BLUE := 1 << 5
-const LAYER_PLAYER_YELLOW := 1 << 6
+const LAYER_PLAYER := 1 << 4
 const LAYER_BLACK := 1 << 0
 const LAYER_RED_WALL := 1 << 1
 const LAYER_BLUE_WALL := 1 << 2
@@ -38,14 +35,17 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func change_player_colour(colour_to_change_to: Enums.Paint_Colour):
-	match colour_to_change_to:
+func change_player_colour(new_player_colour: Enums.Paint_Colour):
+	match new_player_colour:
 		Enums.Paint_Colour.RED:
-			#collision_layer = LAYER_PLAYER_RED
+			animated_sprite.play("Red")
+			collision_layer = LAYER_PLAYER
 			collision_mask = LAYER_BLACK | LAYER_BLUE_WALL | LAYER_YELLOW_WALL
 		Enums.Paint_Colour.BLUE:
-			#collision_layer = LAYER_PLAYER_BLUE
+			animated_sprite.play("Blue")
+			collision_layer = LAYER_PLAYER
 			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_YELLOW_WALL
 		Enums.Paint_Colour.YELLOW:
-			#collision_layer = LAYER_PLAYER_YELLOW
+			animated_sprite.play("Yellow")
+			collision_layer = LAYER_PLAYER
 			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_BLUE_WALL
