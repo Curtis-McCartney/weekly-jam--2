@@ -60,6 +60,10 @@ Mouse_Click={
 2d_physics/layer_2="Red_Walls"
 2d_physics/layer_3="Blue_Walls"
 2d_physics/layer_4="Yellow_Walls"
+2d_physics/layer_5="Player_Red"
+2d_physics/layer_6="Player_Blue"
+2d_physics/layer_7="Player_Yellow"
+2d_physics/layer_8="Paint_Pots"
 
 [rendering]
 

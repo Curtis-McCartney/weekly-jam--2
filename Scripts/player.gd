@@ -7,6 +7,14 @@ extends CharacterBody2D
 @export var current_player_colour: Enums.Paint_Colour
 @export var currently_held_paint_can: Enums.Paint_Colour
 
+const LAYER_PLAYER_RED := 1 << 4
+const LAYER_PLAYER_BLUE := 1 << 5
+const LAYER_PLAYER_YELLOW := 1 << 6
+const LAYER_BLACK := 1 << 0
+const LAYER_RED_WALL := 1 << 1
+const LAYER_BLUE_WALL := 1 << 2
+const LAYER_YELLOW_WALL := 1 << 3
+
 func _ready() -> void:
 	currently_held_paint_can = Enums.Paint_Colour.RED
 	change_player_colour(Enums.Paint_Colour.RED)
@@ -30,21 +38,14 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func change_player_colour(colour_to_change_to) -> void:
-	current_player_colour = colour_to_change_to
-	
-	var MASK_BLACK_WALL := 1 << 0
-	var MASK_RED := 1 << 1
-	var MASK_BLUE := 1 << 2
-	var MASK_YELLOW := 1 << 3
-	
-	match current_player_colour:
+func change_player_colour(colour_to_change_to: Enums.Paint_Colour):
+	match colour_to_change_to:
 		Enums.Paint_Colour.RED:
-			collision_mask = MASK_BLUE | MASK_YELLOW | MASK_BLACK_WALL
-			collision_layer = MASK_BLUE | MASK_YELLOW | MASK_BLACK_WALL
+			#collision_layer = LAYER_PLAYER_RED
+			collision_mask = LAYER_BLACK | LAYER_BLUE_WALL | LAYER_YELLOW_WALL
 		Enums.Paint_Colour.BLUE:
-			collision_mask = MASK_RED | MASK_YELLOW | MASK_BLACK_WALL
-			collision_layer = MASK_RED | MASK_YELLOW | MASK_BLACK_WALL
+			#collision_layer = LAYER_PLAYER_BLUE
+			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_YELLOW_WALL
 		Enums.Paint_Colour.YELLOW:
-			collision_mask = MASK_RED | MASK_BLUE | MASK_BLACK_WALL
-			collision_layer = MASK_RED | MASK_BLUE | MASK_BLACK_WALL
+			#collision_layer = LAYER_PLAYER_YELLOW
+			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_BLUE_WALL
