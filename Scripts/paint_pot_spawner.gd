@@ -13,10 +13,14 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("Mouse_Click"):
+		if player.currently_held_paint_can == Enums.Paint_Colour.NONE:
+			return
 		show_trajectory = true
 		ready_paint_pot()
 		queue_redraw()
 	elif Input.is_action_just_released("Mouse_Click"):
+		if player.currently_held_paint_can == Enums.Paint_Colour.NONE:
+			return
 		show_trajectory = false
 		shoot_pot()
 		queue_redraw()  # Clear the line
@@ -35,6 +39,7 @@ func ready_paint_pot():
 func shoot_pot():
 	get_tree().current_scene.add_child(pot_to_instantiate)
 	pot_made = false
+	player.currently_held_paint_can = Enums.Paint_Colour.NONE
 
 func _draw() -> void:
 	if show_trajectory:

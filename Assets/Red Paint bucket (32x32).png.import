@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo36c4g70r2il"
-path="res://.godot/imported/world_border.png-75930007847d86198e9decf1c16ac492.ctex"
+uid="uid://bvbwq2g80wdqj"
+path="res://.godot/imported/Red Paint bucket (32x32).png-93c18afdad1e09dea737e4c8ff5d5037.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/world_border.png"
-dest_files=["res://.godot/imported/world_border.png-75930007847d86198e9decf1c16ac492.ctex"]
+source_file="res://Assets/Red Paint bucket (32x32).png"
+dest_files=["res://.godot/imported/Red Paint bucket (32x32).png-93c18afdad1e09dea737e4c8ff5d5037.ctex"]
 
 [params]
 

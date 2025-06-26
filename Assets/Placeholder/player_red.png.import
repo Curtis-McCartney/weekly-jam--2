@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw5mhf6njao06"
-path="res://.godot/imported/double_platform_spritesheet.png-a3d7e6c6db557bf327b79b901c5bdcaa.ctex"
+uid="uid://dnnox2gglg1u3"
+path="res://.godot/imported/player_red.png-97f71bad38a1ecc461685a3b8f1c361c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/double_platform_spritesheet.png"
-dest_files=["res://.godot/imported/double_platform_spritesheet.png-a3d7e6c6db557bf327b79b901c5bdcaa.ctex"]
+source_file="res://Assets/Placeholder/player_red.png"
+dest_files=["res://.godot/imported/player_red.png-97f71bad38a1ecc461685a3b8f1c361c.ctex"]
 
 [params]
 

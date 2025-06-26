@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqucae2n21qbo"
-path="res://.godot/imported/escape_door_spritesheet.png-50eec3f9885b2365cde84afd14d38a7a.ctex"
+uid="uid://dwteh2ooq2n1q"
+path="res://.godot/imported/Blue Paint brush Run (32x32).png-36c6c75c09d31b0aab852c0ff6141195.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/escape_door_spritesheet.png"
-dest_files=["res://.godot/imported/escape_door_spritesheet.png-50eec3f9885b2365cde84afd14d38a7a.ctex"]
+source_file="res://Assets/Blue Paint brush Run (32x32).png"
+dest_files=["res://.godot/imported/Blue Paint brush Run (32x32).png-36c6c75c09d31b0aab852c0ff6141195.ctex"]
 
 [params]
 

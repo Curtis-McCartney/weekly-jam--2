@@ -1,7 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtdjof8npieia"]
+[gd_scene load_steps=10 format=3 uid="uid://dtdjof8npieia"]
 
 [ext_resource type="Script" uid="uid://d1qynydotn7hj" path="res://Scripts/paint_pot.gd" id="1_d6j7m"]
-[ext_resource type="Texture2D" uid="uid://uk6lu22r7ba4" path="res://Assets/icon.svg" id="1_vhnaa"]
+[ext_resource type="Texture2D" uid="uid://cn70eo2kxm6ms" path="res://Assets/Blue Paint bucket (32x32).png" id="2_3ygn3"]
+[ext_resource type="Texture2D" uid="uid://bvbwq2g80wdqj" path="res://Assets/Red Paint bucket (32x32).png" id="3_756t3"]
+[ext_resource type="Texture2D" uid="uid://0w3do0ofed8d" path="res://Assets/Yellow Paint bucket (32x32).png" id="4_sa5de"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plpku"]
+atlas = ExtResource("2_3ygn3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov878"]
+atlas = ExtResource("3_756t3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb7wc"]
+atlas = ExtResource("4_sa5de")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aiyqm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plpku")
+}],
+"loop": true,
+"name": &"Blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov878")
+}],
+"loop": true,
+"name": &"Red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb7wc")
+}],
+"loop": true,
+"name": &"Yellow",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhnaa"]
 
@@ -13,11 +54,13 @@ contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_d6j7m")
 
-[node name="Paint_Pot_Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.15625, 0.15625)
-texture = ExtResource("1_vhnaa")
+[node name="Paint_Pot_Sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_aiyqm")
+animation = &"Red"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_vhnaa")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

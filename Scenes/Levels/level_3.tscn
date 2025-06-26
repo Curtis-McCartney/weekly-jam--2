@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cujnrutkjb844"]
+
+[ext_resource type="PackedScene" uid="uid://dqdcu6olaado5" path="res://Scenes/world_border.tscn" id="1_nfly3"]
+[ext_resource type="PackedScene" uid="uid://cjvvw4wiqfvkm" path="res://Scenes/player.tscn" id="2_t8c31"]
+[ext_resource type="PackedScene" uid="uid://e4p7ammoag8a" path="res://Scenes/double_platform.tscn" id="3_rc141"]
+
+[node name="Level_3" type="Node2D"]
+
+[node name="World_Border" parent="." instance=ExtResource("1_nfly3")]
+
+[node name="Player" parent="." instance=ExtResource("2_t8c31")]
+position = Vector2(238, 119)
+
+[node name="Platform" parent="." instance=ExtResource("3_rc141")]
+position = Vector2(128, 129)
+wall_colour = 2
+
+[node name="Platform2" parent="." instance=ExtResource("3_rc141")]
+position = Vector2(235, 52)
+wall_colour = 1

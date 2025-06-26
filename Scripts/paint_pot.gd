@@ -1,6 +1,8 @@
 extends RigidBody2D
 
 @export var paint_colour: Enums.Paint_Colour
+@onready var paint_pot_sprite: AnimatedSprite2D = %Paint_Pot_Sprite
+@export var speed: float = 450
 
 const LAYER_BLACK := 1 << 0
 const LAYER_RED_WALL := 1 << 1
@@ -11,11 +13,17 @@ const LAYER_PLAYER := 1 << 4
 func _ready():
 	match paint_colour:
 		Enums.Paint_Colour.RED:
+			paint_pot_sprite.play("Red")
 			collision_mask = LAYER_BLACK | LAYER_BLUE_WALL | LAYER_YELLOW_WALL
 		Enums.Paint_Colour.BLUE:
+			paint_pot_sprite.play("Blue")
 			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_YELLOW_WALL
 		Enums.Paint_Colour.YELLOW:
+			paint_pot_sprite.play("Yellow")
 			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_BLUE_WALL
+	
+	# Set spin speed (degrees per second → radians per second)
+	angular_velocity = deg_to_rad(speed)  # 60 degrees/sec clockwise
 	
 	# Temporarily avoid colliding with the player who threw this
 	collision_mask &= ~LAYER_PLAYER

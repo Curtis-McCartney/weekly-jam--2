@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqdcu6olaado5"]
 
-[ext_resource type="Texture2D" uid="uid://bo36c4g70r2il" path="res://Assets/world_border.png" id="1_qa2m6"]
+[ext_resource type="Texture2D" uid="uid://bo36c4g70r2il" path="res://Assets/Placeholder/world_border.png" id="1_qa2m6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yomhl"]
 size = Vector2(674, 224.25)

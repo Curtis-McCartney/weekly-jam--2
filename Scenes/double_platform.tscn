@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://e4p7ammoag8a"]
 
-[ext_resource type="Texture2D" uid="uid://cw5mhf6njao06" path="res://Assets/double_platform_spritesheet.png" id="1_7cd1g"]
+[ext_resource type="Texture2D" uid="uid://cw5mhf6njao06" path="res://Assets/Placeholder/double_platform_spritesheet.png" id="1_7cd1g"]
 [ext_resource type="Script" uid="uid://dw1voxlmilgk6" path="res://Scripts/double_platform.gd" id="1_akck2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n5262"]
