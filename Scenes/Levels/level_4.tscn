@@ -13,22 +13,22 @@
 [node name="Player" parent="." instance=ExtResource("2_t74h0")]
 position = Vector2(-249, 133)
 
-[node name="Win_Door" parent="." instance=ExtResource("4_h0uxt")]
-position = Vector2(261, -29)
-
-[node name="Paint_Bucket_Collection" parent="." instance=ExtResource("5_keyqw")]
-position = Vector2(250, 134)
-bucket_colour = 3
-
 [node name="Platform" parent="." instance=ExtResource("3_i4hbv")]
-position = Vector2(-72, 119)
+position = Vector2(-77, 122)
 wall_colour = 3
 
 [node name="Platform2" parent="." instance=ExtResource("3_i4hbv")]
-position = Vector2(221, 65)
-wall_colour = 2
+position = Vector2(26, 27)
+rotation = 1.5708
+wall_colour = 1
 
 [node name="Platform3" parent="." instance=ExtResource("3_i4hbv")]
-position = Vector2(80, 6)
-rotation = 1.57079
-wall_colour = 3
+position = Vector2(185, 53)
+wall_colour = 1
+
+[node name="Win_Door" parent="." instance=ExtResource("4_h0uxt")]
+position = Vector2(222, -42)
+
+[node name="Paint_Bucket_Collection" parent="." instance=ExtResource("5_keyqw")]
+position = Vector2(260, 134)
+bucket_colour = 3

@@ -12,6 +12,7 @@ var current_level: int
 @onready var level_6_scene: PackedScene = preload("res://Scenes/Levels/level_6.tscn")
 @onready var level_7_scene: PackedScene = preload("res://Scenes/Levels/level_7.tscn")
 @onready var level_8_scene: PackedScene = preload("res://Scenes/Levels/level_8.tscn")
+@onready var level_9_scene: PackedScene = preload("res://Scenes/Levels/level_9.tscn")
 var tween: Tween
 
 # Audio Players
@@ -22,7 +23,7 @@ var tween: Tween
 
 func _ready() -> void:
 	# Call Main Menu
-	current_level = 7
+	current_level = 1
 	load_level(current_level)
 
 func player_at_win_door():
@@ -65,6 +66,8 @@ func load_level(level_to_load) -> void:
 			level_to_instantiate = level_7_scene.instantiate()
 		8:
 			level_to_instantiate = level_8_scene.instantiate()
+		9:
+			level_to_instantiate = level_9_scene.instantiate()
 		_:
 			printerr("Trying to load a level that does not exist!")
 			return
