@@ -10,7 +10,7 @@
 [sub_resource type="Theme" id="Theme_yy6i0"]
 default_font = ExtResource("6_yy6i0")
 
-[node name="Level_9" type="Node2D"]
+[node name="Level_3" type="Node2D"]
 
 [node name="World_Border" parent="." instance=ExtResource("1_nfly3")]
 

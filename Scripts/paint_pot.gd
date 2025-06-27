@@ -4,6 +4,7 @@ extends RigidBody2D
 @onready var paint_pot_sprite: AnimatedSprite2D = %Paint_Pot_Sprite
 @onready var paint_particles: PackedScene = preload("res://Scenes/paint_particles.tscn")
 @export var speed: float = 450
+var hit_something: bool = false
 
 const LAYER_BLACK := 1 << 0
 const LAYER_RED_WALL := 1 << 1
@@ -35,18 +36,20 @@ func _ready():
 
 func hit_wall(wall: Node):
 	print("Hit the Wall!")
+	hit_something = true
 	wall.change_wall_colour(paint_colour)
 
 func hit_player(player: Node):
 	print("Hit the Player!")
+	hit_something = true
 	player.change_player_colour(paint_colour)
 
 func _on_body_entered(body: Node) -> void:
 	# This is called whenever a paint pot hits anything
 	create_paint_particles()
-	if body.is_in_group("Coloured_Wall"):
+	if body.is_in_group("Coloured_Wall") && !hit_something:
 		hit_wall(body)
-	elif body.is_in_group("Player"):
+	elif body.is_in_group("Player") && !hit_something:
 		hit_player(body)
 	kill_paint_bucket()
 

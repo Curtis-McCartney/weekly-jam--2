@@ -35,7 +35,7 @@ offset_top = -101.0
 offset_right = -1.0
 offset_bottom = -61.0
 theme = SubResource("Theme_fphuk")
-text = "Only contrasting colours can interact!"
+text = "Your paint bucket can even hit yourself!"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
