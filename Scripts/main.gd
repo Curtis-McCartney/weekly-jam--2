@@ -22,7 +22,7 @@ var tween: Tween
 
 func _ready() -> void:
 	# Call Main Menu
-	current_level = 5
+	current_level = 7
 	load_level(current_level)
 
 func player_at_win_door():

@@ -9,6 +9,8 @@ const LAYER_BLUE_WALL := 1 << 2
 const LAYER_YELLOW_WALL := 1 << 3
 const LAYER_PLAYER := 1 << 4
 
+var player: Node
+
 # An all-purpose script for all type of wall
 func _ready() -> void:
 	player_tracking_area.collision_mask = LAYER_PLAYER
@@ -16,6 +18,8 @@ func _ready() -> void:
 
 func change_wall_colour(new_wall_colour: Enums.Paint_Colour) -> void:
 	wall_colour = new_wall_colour
+	if player:
+		player.is_on_wall = false
 	match new_wall_colour:
 		Enums.Paint_Colour.RED:
 			animated_wall_sprite.play("Red")
@@ -29,6 +33,7 @@ func change_wall_colour(new_wall_colour: Enums.Paint_Colour) -> void:
 
 func _on_player_tracking_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		player = body
 		if body.current_player_colour != wall_colour:
 			body.is_on_wall = true
 			print(body.is_on_wall, " on wall!")
