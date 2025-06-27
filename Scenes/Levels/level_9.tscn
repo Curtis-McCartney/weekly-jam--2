@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfyd5jtn0g84c"]
+[gd_scene load_steps=5 format=3 uid="uid://muxbbf72xuo8"]
 
 [ext_resource type="PackedScene" uid="uid://dqdcu6olaado5" path="res://Scenes/world_border.tscn" id="1_22gpn"]
 [ext_resource type="PackedScene" uid="uid://cjvvw4wiqfvkm" path="res://Scenes/player.tscn" id="2_pyg1t"]
 [ext_resource type="PackedScene" uid="uid://c8t7uut3ow4lp" path="res://Scenes/win_door.tscn" id="3_p3g8w"]
 [ext_resource type="PackedScene" uid="uid://d1bwgdyekn17q" path="res://Scenes/paint_bucket_collection.tscn" id="4_wyulo"]
 
-[node name="Level_9" type="Node2D"]
+[node name="Level_8" type="Node2D"]
 
 [node name="World_Border" parent="." instance=ExtResource("1_22gpn")]
 

@@ -1,40 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1jbuamkyuels"]
+[gd_scene load_steps=6 format=3 uid="uid://dd8sxwp0gu07"]
 
 [ext_resource type="PackedScene" uid="uid://dqdcu6olaado5" path="res://Scenes/world_border.tscn" id="1_sanrf"]
 [ext_resource type="PackedScene" uid="uid://cjvvw4wiqfvkm" path="res://Scenes/player.tscn" id="2_2634h"]
 [ext_resource type="PackedScene" uid="uid://c8t7uut3ow4lp" path="res://Scenes/win_door.tscn" id="3_wakwf"]
 [ext_resource type="PackedScene" uid="uid://d1bwgdyekn17q" path="res://Scenes/paint_bucket_collection.tscn" id="4_reooa"]
 [ext_resource type="PackedScene" uid="uid://e4p7ammoag8a" path="res://Scenes/double_platform.tscn" id="5_doouk"]
-[ext_resource type="PackedScene" uid="uid://bmwp7b5ndxabx" path="res://Scenes/climbing_wall.tscn" id="6_2634h"]
 
-[node name="Level_5" type="Node2D"]
+[node name="Level_4" type="Node2D"]
 
 [node name="World_Border" parent="." instance=ExtResource("1_sanrf")]
 
 [node name="Player" parent="." instance=ExtResource("2_2634h")]
 position = Vector2(-249, 133)
 
-[node name="Win_Door" parent="." instance=ExtResource("3_wakwf")]
-position = Vector2(-193, -99)
-
-[node name="Paint_Bucket_Collection" parent="." instance=ExtResource("4_reooa")]
-position = Vector2(-33, 133)
-bucket_colour = 2
+[node name="Platform" parent="." instance=ExtResource("5_doouk")]
+position = Vector2(-77, 122)
+wall_colour = 3
 
 [node name="Platform2" parent="." instance=ExtResource("5_doouk")]
-position = Vector2(89, 70)
-wall_colour = 2
-
-[node name="Platform" parent="." instance=ExtResource("5_doouk")]
-position = Vector2(-213, -4)
+position = Vector2(26, 27)
+rotation = 1.5708
 wall_colour = 1
 
-[node name="Climbing_Wall" parent="." instance=ExtResource("6_2634h")]
-position = Vector2(255, 102)
+[node name="Platform3" parent="." instance=ExtResource("5_doouk")]
+position = Vector2(185, 53)
+wall_colour = 1
 
-[node name="Climbing_Wall2" parent="." instance=ExtResource("6_2634h")]
-position = Vector2(-57, -14)
+[node name="Win_Door" parent="." instance=ExtResource("3_wakwf")]
+position = Vector2(222, -42)
 
-[node name="Paint_Bucket_Collection2" parent="." instance=ExtResource("4_reooa")]
-position = Vector2(84, -8)
+[node name="Paint_Bucket_Collection" parent="." instance=ExtResource("4_reooa")]
+position = Vector2(260, 134)
 bucket_colour = 3
