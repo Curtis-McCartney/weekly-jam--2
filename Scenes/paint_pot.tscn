@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhnaa"]
+size = Vector2(14, 20)
 
 [node name="Paint_Pot" type="RigidBody2D" groups=["Coloured_Wall"]]
 collision_layer = 0
@@ -60,7 +61,6 @@ sprite_frames = SubResource("SpriteFrames_aiyqm")
 animation = &"Red"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_vhnaa")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

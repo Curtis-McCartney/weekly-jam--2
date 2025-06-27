@@ -17,4 +17,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		print("Player is grabbing paint bucket")
 		body.currently_held_paint_can = bucket_colour
+		get_tree().current_scene.play_pickup_bucket_sound_effect()
 		queue_free()

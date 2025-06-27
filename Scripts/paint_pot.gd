@@ -2,6 +2,7 @@ extends RigidBody2D
 
 @export var paint_colour: Enums.Paint_Colour
 @onready var paint_pot_sprite: AnimatedSprite2D = %Paint_Pot_Sprite
+@onready var paint_particles: PackedScene = preload("res://Scenes/paint_particles.tscn")
 @export var speed: float = 450
 
 const LAYER_BLACK := 1 << 0
@@ -28,7 +29,7 @@ func _ready():
 	# Temporarily avoid colliding with the player who threw this
 	collision_mask &= ~LAYER_PLAYER
 	await get_tree().create_timer(0.5).timeout
-	if get_tree().current_scene.find_child("Player").current_player_colour == paint_colour:
+	if get_tree().current_scene.find_player().current_player_colour == paint_colour:
 		return
 	collision_mask |= LAYER_PLAYER
 
@@ -42,6 +43,7 @@ func hit_player(player: Node):
 
 func _on_body_entered(body: Node) -> void:
 	# This is called whenever a paint pot hits anything
+	create_paint_particles()
 	if body.is_in_group("Coloured_Wall"):
 		hit_wall(body)
 	elif body.is_in_group("Player"):
@@ -51,3 +53,11 @@ func _on_body_entered(body: Node) -> void:
 func kill_paint_bucket():
 	# Do Animation Stuff here later
 	queue_free()
+
+func create_paint_particles():
+	print("Creating particles")
+	var particles_to_instantiate = paint_particles.instantiate()
+	particles_to_instantiate.global_position = global_position
+	get_tree().current_scene.find_child("Level_Holder").get_child(0).add_child(particles_to_instantiate)
+	get_tree().current_scene.play_bucket_explosion_sound_effect()
+	particles_to_instantiate.set_emitting(true)

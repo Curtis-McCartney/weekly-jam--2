@@ -7,6 +7,14 @@ var current_level: int
 @onready var level_1_scene: PackedScene = preload("res://Scenes/Levels/level_1.tscn")
 @onready var level_2_scene: PackedScene = preload("res://Scenes/Levels/level_2.tscn")
 @onready var level_3_scene: PackedScene = preload("res://Scenes/Levels/level_3.tscn")
+@onready var level_4_scene: PackedScene = preload("res://Scenes/Levels/hard_level.tscn")
+var tween: Tween
+
+# Audio Players
+@onready var player_jump_sound_effect: AudioStreamPlayer = %Player_Jump
+@onready var bucket_pickup_sound_effect: AudioStreamPlayer = %Bucket_Pickup
+@onready var bucket_explosion_sound_effect: AudioStreamPlayer = %Bucket_Explosion
+@onready var win_door_sound_effect: AudioStreamPlayer = %Win_Door
 
 func _ready() -> void:
 	# Call Main Menu
@@ -14,6 +22,18 @@ func _ready() -> void:
 	load_level(current_level)
 
 func player_at_win_door():
+	var player = find_player()
+
+	if player:
+		player.at_win_door()
+		reset_tween()
+		tween.tween_property(player, "modulate:a", 0, 1)
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Restart"):
+		call_deferred("load_level", current_level)
+
+func win_door_closed():
 	current_level += 1
 	call_deferred("load_level", current_level)
 
@@ -31,6 +51,8 @@ func load_level(level_to_load) -> void:
 			level_to_instantiate = level_2_scene.instantiate()
 		3:
 			level_to_instantiate = level_3_scene.instantiate()
+		4:
+			level_to_instantiate = level_4_scene.instantiate()
 		_:
 			printerr("Trying to load a level that does not exist!")
 			return
@@ -40,3 +62,34 @@ func load_level(level_to_load) -> void:
 func de_load_all_levels() -> void:
 	for level in level_holder.get_children():
 		level.queue_free()
+
+func reset_tween() -> void:
+	if tween:
+		tween.kill()
+	tween = create_tween()
+
+func find_player() -> Node:
+	if level_holder.get_child_count() == 0:
+		print("No level loaded, so no Player loaded!")
+		return
+
+	var level_instance = level_holder.get_child(0)
+	var player = level_instance.find_child("Player", true, false)
+
+	if player:
+		return player
+	else:
+		print("Player not found!")
+		return null
+
+func play_pickup_bucket_sound_effect():
+	bucket_pickup_sound_effect.play()
+
+func play_jump_sound_effect():
+	player_jump_sound_effect.play()
+
+func play_bucket_explosion_sound_effect():
+	bucket_explosion_sound_effect.play()
+
+func play_win_door_sound_effect():
+	win_door_sound_effect.play()

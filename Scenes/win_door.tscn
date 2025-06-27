@@ -127,4 +127,5 @@ position = Vector2(-27.5, 8)
 shape = SubResource("RectangleShape2D_mtf2k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="animation_finished" from="Animated_Door_Sprite" to="." method="_on_animated_door_sprite_animation_finished"]

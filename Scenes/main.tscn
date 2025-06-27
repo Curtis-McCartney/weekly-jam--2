@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b40bnaymrg0ey"]
+[gd_scene load_steps=6 format=3 uid="uid://b40bnaymrg0ey"]
 
 [ext_resource type="Script" uid="uid://d2cndjyy1yaox" path="res://Scripts/main.gd" id="1_8gbba"]
+[ext_resource type="AudioStream" uid="uid://c172bj77gxw1g" path="res://Sounds/jump (2).wav" id="2_8gbba"]
+[ext_resource type="AudioStream" uid="uid://2iiglpxqe5jr" path="res://Sounds/pickup.wav" id="3_jjvhh"]
+[ext_resource type="AudioStream" uid="uid://crcrgvhj8dlxs" path="res://Sounds/explosion.wav" id="4_jjvhh"]
+[ext_resource type="AudioStream" uid="uid://bn6t5f6l8ha0w" path="res://Sounds/DDRKirby(ISQ) - ~Monthlies 2025.06~ - 04 A Curious Tail.mp3" id="5_kry3j"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8gbba")
@@ -10,4 +14,28 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Level_Holder" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Audio_Players" type="Node2D" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio_Players"]
+stream = ExtResource("5_kry3j")
+volume_db = -9.369
+autoplay = true
+
+[node name="Player_Jump" type="AudioStreamPlayer" parent="Audio_Players"]
+unique_name_in_owner = true
+stream = ExtResource("2_8gbba")
+volume_db = -7.495
+
+[node name="Bucket_Pickup" type="AudioStreamPlayer" parent="Audio_Players"]
+unique_name_in_owner = true
+stream = ExtResource("3_jjvhh")
+
+[node name="Bucket_Explosion" type="AudioStreamPlayer" parent="Audio_Players"]
+unique_name_in_owner = true
+stream = ExtResource("4_jjvhh")
+volume_db = -8.432
+
+[node name="Win_Door" type="AudioStreamPlayer" parent="Audio_Players"]
 unique_name_in_owner = true

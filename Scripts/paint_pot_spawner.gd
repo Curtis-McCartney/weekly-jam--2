@@ -37,7 +37,7 @@ func ready_paint_pot():
 
 
 func shoot_pot():
-	get_tree().current_scene.add_child(pot_to_instantiate)
+	get_tree().current_scene.find_child("Level_Holder").get_child(0).add_child(pot_to_instantiate)
 	pot_made = false
 	player.currently_held_paint_can = Enums.Paint_Colour.NONE
 

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://csclqvma1cxgj"]
+
+[ext_resource type="PackedScene" uid="uid://dqdcu6olaado5" path="res://Scenes/world_border.tscn" id="1_l732w"]
+[ext_resource type="PackedScene" uid="uid://cjvvw4wiqfvkm" path="res://Scenes/player.tscn" id="2_1d4uo"]
+[ext_resource type="PackedScene" uid="uid://e4p7ammoag8a" path="res://Scenes/double_platform.tscn" id="3_w56pq"]
+[ext_resource type="PackedScene" uid="uid://c8t7uut3ow4lp" path="res://Scenes/win_door.tscn" id="4_qtfxw"]
+[ext_resource type="PackedScene" uid="uid://d1bwgdyekn17q" path="res://Scenes/paint_bucket_collection.tscn" id="5_d4jpc"]
+
+[node name="Level_3" type="Node2D"]
+
+[node name="World_Border" parent="." instance=ExtResource("1_l732w")]
+
+[node name="Player" parent="." instance=ExtResource("2_1d4uo")]
+position = Vector2(-249, 133)
+
+[node name="Platform" parent="." instance=ExtResource("3_w56pq")]
+position = Vector2(-77, 128)
+wall_colour = 3
+
+[node name="Platform2" parent="." instance=ExtResource("3_w56pq")]
+position = Vector2(66, 15)
+rotation = 1.5708
+wall_colour = 1
+
+[node name="Platform3" parent="." instance=ExtResource("3_w56pq")]
+position = Vector2(241, 67)
+wall_colour = 1
+
+[node name="Win_Door" parent="." instance=ExtResource("4_qtfxw")]
+position = Vector2(278, -28)
+
+[node name="Paint_Bucket_Collection" parent="." instance=ExtResource("5_d4jpc")]
+position = Vector2(260, 134)
+bucket_colour = 3
