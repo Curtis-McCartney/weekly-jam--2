@@ -19,7 +19,7 @@ rotation = 1.57079
 wall_colour = 2
 
 [node name="Win_Door" parent="." instance=ExtResource("4_iixi8")]
-position = Vector2(267, 103)
+position = Vector2(268, 106)
 
 [node name="Paint_Bucket_Collection" parent="." instance=ExtResource("5_cyadu")]
 position = Vector2(-104, 125)

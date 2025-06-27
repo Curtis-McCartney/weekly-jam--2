@@ -23,4 +23,4 @@ position = Vector2(-104, 125)
 bucket_colour = 2
 
 [node name="Win_Door" parent="." instance=ExtResource("5_ovj6s")]
-position = Vector2(267, 103)
+position = Vector2(268, 106)

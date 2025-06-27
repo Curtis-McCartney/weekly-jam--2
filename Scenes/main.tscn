@@ -31,6 +31,7 @@ volume_db = -7.495
 [node name="Bucket_Pickup" type="AudioStreamPlayer" parent="Audio_Players"]
 unique_name_in_owner = true
 stream = ExtResource("3_jjvhh")
+volume_db = -7.495
 
 [node name="Bucket_Explosion" type="AudioStreamPlayer" parent="Audio_Players"]
 unique_name_in_owner = true

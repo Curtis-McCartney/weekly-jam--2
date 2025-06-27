@@ -1,14 +1,17 @@
-extends RigidBody2D
+extends StaticBody2D
 
 @export var wall_colour: Enums.Paint_Colour
 @export var animated_wall_sprite: AnimatedSprite2D
+@export var player_tracking_area: Area2D
 
 const LAYER_RED_WALL := 1 << 1
 const LAYER_BLUE_WALL := 1 << 2
 const LAYER_YELLOW_WALL := 1 << 3
+const LAYER_PLAYER := 1 << 4
 
 # An all-purpose script for all type of wall
 func _ready() -> void:
+	player_tracking_area.collision_mask = LAYER_PLAYER
 	change_wall_colour(wall_colour)
 
 func change_wall_colour(new_wall_colour: Enums.Paint_Colour) -> void:
@@ -23,3 +26,16 @@ func change_wall_colour(new_wall_colour: Enums.Paint_Colour) -> void:
 		Enums.Paint_Colour.YELLOW:
 			animated_wall_sprite.play("Yellow")
 			collision_layer = LAYER_YELLOW_WALL
+
+func _on_player_tracking_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		if body.current_player_colour != wall_colour:
+			body.is_on_wall = true
+			print(body.is_on_wall, " on wall!")
+		else:
+			body.is_on_wall = false
+
+func _on_player_tracking_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		body.is_on_wall = false
+		print(body.is_on_wall, " on wall!")
