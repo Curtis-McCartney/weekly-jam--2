@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var current_player_colour: Enums.Paint_Colour
 @export var currently_held_paint_can: Enums.Paint_Colour
 var player_allowed_to_input: bool
-var is_on_wall: bool = false
+var currently_on_wall: bool = false
 
 const LAYER_PLAYER := 1 << 4
 const LAYER_BLACK := 1 << 0
@@ -44,10 +44,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	
-	if Input.is_action_pressed("Move_Up") && is_on_wall && player_allowed_to_input:
+	if Input.is_action_pressed("Move_Up") && currently_on_wall && player_allowed_to_input:
 		velocity.y = -speed / 2
 	
-	if Input.is_action_pressed("Move_Down") && is_on_wall && player_allowed_to_input:
+	if Input.is_action_pressed("Move_Down") && currently_on_wall && player_allowed_to_input:
 		velocity.y = speed / 2
 	
 	# Run Idle Animation when stopped moving

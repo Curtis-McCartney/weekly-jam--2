@@ -13,6 +13,7 @@ var current_level: int
 @onready var level_7_scene: PackedScene = preload("res://Scenes/Levels/level_7.tscn")
 @onready var level_8_scene: PackedScene = preload("res://Scenes/Levels/level_8.tscn")
 @onready var level_9_scene: PackedScene = preload("res://Scenes/Levels/level_9.tscn")
+@onready var level_10_scene: PackedScene = preload("res://Scenes/Levels/level_10.tscn")
 var tween: Tween
 
 # Audio Players
@@ -34,7 +35,7 @@ func player_at_win_door():
 		reset_tween()
 		tween.tween_property(player, "modulate:a", 0, 1)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Restart"):
 		call_deferred("load_level", current_level)
 
@@ -68,6 +69,8 @@ func load_level(level_to_load) -> void:
 			level_to_instantiate = level_8_scene.instantiate()
 		9:
 			level_to_instantiate = level_9_scene.instantiate()
+		10:
+			level_to_instantiate = level_10_scene.instantiate()
 		_:
 			printerr("Trying to load a level that does not exist!")
 			return
