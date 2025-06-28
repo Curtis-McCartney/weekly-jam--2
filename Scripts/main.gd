@@ -20,6 +20,7 @@ var current_level: int
 var tween: Tween
 
 # Audio Players
+@onready var music: AudioStreamPlayer = %Music
 @onready var player_jump_sound_effect: AudioStreamPlayer = %Player_Jump
 @onready var bucket_pickup_sound_effect: AudioStreamPlayer = %Bucket_Pickup
 @onready var bucket_explosion_sound_effect: AudioStreamPlayer = %Bucket_Explosion
@@ -27,6 +28,7 @@ var tween: Tween
 
 func _ready() -> void:
 	# Call Main Menu
+	music.play()
 	speedrun_timer_is_on = false
 	current_level = 0
 	load_level(current_level)
@@ -43,6 +45,10 @@ func _process(_delta: float) -> void:
 	if !find_player():
 		return
 	if Input.is_action_just_pressed("Restart") && find_player().player_allowed_to_input:
+		call_deferred("load_level", current_level)
+	if Input.is_action_just_pressed("Escape") && find_player().player_allowed_to_input:
+		speedrun_time_text.quick_end()
+		current_level = 0
 		call_deferred("load_level", current_level)
 
 func win_door_closed():

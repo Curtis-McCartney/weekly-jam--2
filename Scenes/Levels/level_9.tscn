@@ -1,11 +1,58 @@
-[gd_scene load_steps=7 format=3 uid="uid://muxbbf72xuo8"]
+[gd_scene load_steps=15 format=3 uid="uid://muxbbf72xuo8"]
 
 [ext_resource type="PackedScene" uid="uid://dqdcu6olaado5" path="res://Scenes/world_border.tscn" id="1_22gpn"]
 [ext_resource type="PackedScene" uid="uid://cjvvw4wiqfvkm" path="res://Scenes/player.tscn" id="2_pyg1t"]
 [ext_resource type="PackedScene" uid="uid://c8t7uut3ow4lp" path="res://Scenes/win_door.tscn" id="3_p3g8w"]
 [ext_resource type="PackedScene" uid="uid://d1bwgdyekn17q" path="res://Scenes/paint_bucket_collection.tscn" id="4_wyulo"]
 [ext_resource type="PackedScene" uid="uid://e4p7ammoag8a" path="res://Scenes/double_platform.tscn" id="5_p3g8w"]
-[ext_resource type="PackedScene" uid="uid://bmwp7b5ndxabx" path="res://Scenes/climbing_wall.tscn" id="6_wyulo"]
+[ext_resource type="Script" uid="uid://cxjjb8ammus31" path="res://Scripts/climbing_wall.gd" id="5_vqdwi"]
+[ext_resource type="Texture2D" uid="uid://cw5mhf6njao06" path="res://Assets/Placeholder/double_platform_spritesheet.png" id="6_q6nfd"]
+[ext_resource type="Theme" uid="uid://dp3ugvrp5snhw" path="res://Scenes/UI/paint_theme.tres" id="7_2ergn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gooc"]
+atlas = ExtResource("6_q6nfd")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdk16"]
+atlas = ExtResource("6_q6nfd")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svwyb"]
+atlas = ExtResource("6_q6nfd")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hj0u6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gooc")
+}],
+"loop": true,
+"name": &"Blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdk16")
+}],
+"loop": true,
+"name": &"Red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svwyb")
+}],
+"loop": true,
+"name": &"Yellow",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6h1d"]
+size = Vector2(62, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e5fb"]
+size = Vector2(94, 126)
 
 [node name="Level_9" type="Node2D"]
 
@@ -29,10 +76,31 @@ bucket_colour = 1
 position = Vector2(52, 128)
 bucket_colour = 2
 
-[node name="Climbing_Wall" parent="." instance=ExtResource("6_wyulo")]
+[node name="Climbing_Wall" type="StaticBody2D" parent="." node_paths=PackedStringArray("animated_wall_sprite", "player_tracking_area") groups=["Coloured_Wall"]]
 position = Vector2(-272, 19)
 scale = Vector2(1, 2.32)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("5_vqdwi")
 wall_colour = 3
+animated_wall_sprite = NodePath("Wall_Sprite")
+player_tracking_area = NodePath("Player_Tracking_Area")
+
+[node name="Wall_Sprite" type="AnimatedSprite2D" parent="Climbing_Wall"]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_hj0u6")
+animation = &"Blue"
+
+[node name="Climbing_Wall_Physical_Collision" type="CollisionShape2D" parent="Climbing_Wall"]
+shape = SubResource("RectangleShape2D_t6h1d")
+
+[node name="Player_Tracking_Area" type="Area2D" parent="Climbing_Wall"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Climbing_Wall/Player_Tracking_Area"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_3e5fb")
 
 [node name="Platform" parent="." instance=ExtResource("5_p3g8w")]
 position = Vector2(-10, 97)
@@ -48,3 +116,42 @@ wall_colour = 2
 position = Vector2(204, 99)
 rotation = 4.71238
 wall_colour = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -298.0
+offset_top = 110.0
+offset_right = -242.0
+offset_bottom = 131.0
+theme = ExtResource("7_2ergn")
+text = "Climb"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = -298.0
+offset_top = 41.0
+offset_right = -242.0
+offset_bottom = 62.0
+theme = ExtResource("7_2ergn")
+text = "Climb"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = -298.0
+offset_top = -28.0
+offset_right = -242.0
+offset_bottom = -7.0
+theme = ExtResource("7_2ergn")
+text = "Climb"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+offset_left = -298.0
+offset_top = -97.0
+offset_right = -242.0
+offset_bottom = -76.0
+theme = ExtResource("7_2ergn")
+text = "Climb"
+fit_content = true
+
+[connection signal="body_entered" from="Climbing_Wall/Player_Tracking_Area" to="Climbing_Wall" method="_on_player_tracking_area_body_entered"]
+[connection signal="body_exited" from="Climbing_Wall/Player_Tracking_Area" to="Climbing_Wall" method="_on_player_tracking_area_body_exited"]

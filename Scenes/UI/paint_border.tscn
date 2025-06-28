@@ -1,10 +1,35 @@
-[gd_scene load_steps=25 format=3 uid="uid://d15833pvdwoig"]
+[gd_scene load_steps=32 format=3 uid="uid://d15833pvdwoig"]
 
 [ext_resource type="Script" uid="uid://bhcmfmpdpryb" path="res://Scripts/paint_border.gd" id="1_tbf2r"]
 [ext_resource type="Texture2D" uid="uid://cn70eo2kxm6ms" path="res://Assets/Blue Paint bucket (32x32).png" id="1_xcbiw"]
 [ext_resource type="Texture2D" uid="uid://bvbwq2g80wdqj" path="res://Assets/Red Paint bucket (32x32).png" id="2_8kgw1"]
+[ext_resource type="Texture2D" uid="uid://dts34018kymme" path="res://Assets/Black Paint bucket (32x32).png" id="3_fx4ii"]
 [ext_resource type="Texture2D" uid="uid://0w3do0ofed8d" path="res://Assets/Yellow Paint bucket (32x32).png" id="3_tbf2r"]
 [ext_resource type="Texture2D" uid="uid://bagsg8rsvld32" path="res://Assets/Placeholder/black_square.png" id="4_8kgw1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tdxc"]
+atlas = ExtResource("3_fx4ii")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fjp4"]
+atlas = ExtResource("3_fx4ii")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h655"]
+atlas = ExtResource("3_fx4ii")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drlo0"]
+atlas = ExtResource("3_fx4ii")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwq8n"]
+atlas = ExtResource("3_fx4ii")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3of5"]
+atlas = ExtResource("3_fx4ii")
+region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7bl5r"]
 atlas = ExtResource("1_xcbiw")
@@ -80,6 +105,29 @@ region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7bl5r"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tdxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fjp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h655")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drlo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwq8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3of5")
+}],
+"loop": true,
+"name": &"Black",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7bl5r")
@@ -169,5 +217,4 @@ color = Color(0.176419, 0.176419, 0.176419, 1)
 unique_name_in_owner = true
 scale = Vector2(1.9375, 1.9375)
 sprite_frames = SubResource("SpriteFrames_7bl5r")
-animation = &"Red"
-frame_progress = 0.654963
+animation = &"Black"

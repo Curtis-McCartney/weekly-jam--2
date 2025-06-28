@@ -19,6 +19,6 @@ func _process(_delta: float) -> void:
 				animation_sprite.play("Blue")
 			Enums.Paint_Colour.YELLOW:
 				animation_sprite.play("Yellow")
-			Enums.Paint_Colour.YELLOW:
+			Enums.Paint_Colour.BLACK:
 				animation_sprite.play("Black")
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b40bnaymrg0ey"]
+[gd_scene load_steps=9 format=3 uid="uid://b40bnaymrg0ey"]
 
 [ext_resource type="Script" uid="uid://d2cndjyy1yaox" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="AudioStream" uid="uid://c172bj77gxw1g" path="res://Sounds/jump (2).wav" id="2_8gbba"]
@@ -7,9 +7,16 @@
 [ext_resource type="AudioStream" uid="uid://bn6t5f6l8ha0w" path="res://Sounds/DDRKirby(ISQ) - ~Monthlies 2025.06~ - 04 A Curious Tail.mp3" id="5_kry3j"]
 [ext_resource type="Theme" uid="uid://dp3ugvrp5snhw" path="res://Scenes/UI/paint_theme.tres" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://curoj60rtwxys" path="res://Scripts/speedrun_timer_text.gd" id="7_6bp64"]
+[ext_resource type="Texture2D" uid="uid://twjshgmm0u4l" path="res://Assets/Placeholder/white-paper-texture.jpg" id="8_344ge"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8gbba")
+
+[node name="White-paper-texture" type="Sprite2D" parent="."]
+self_modulate = Color(0.301961, 0.301961, 0.301961, 1)
+position = Vector2(-2, -13)
+scale = Vector2(0.375656, 0.375656)
+texture = ExtResource("8_344ge")
 
 [node name="Camera" type="Camera2D" parent="."]
 limit_smoothed = true
@@ -21,6 +28,7 @@ unique_name_in_owner = true
 [node name="Audio_Players" type="Node2D" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="Audio_Players"]
+unique_name_in_owner = true
 stream = ExtResource("5_kry3j")
 volume_db = -9.369
 autoplay = true

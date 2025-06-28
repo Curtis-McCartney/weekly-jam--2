@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Enter") && won:
+		get_tree().current_scene.speedrun_time_text.quick_end()
 		get_tree().current_scene.current_level = 0
 		get_tree().current_scene.load_level(0)
 

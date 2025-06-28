@@ -16,7 +16,10 @@ func start():
 		show()
 		time_elapsed = 0.0
 		running = true
-	
+
+func quick_end():
+	stop()
+	hide()
 
 func stop():
 	running = false

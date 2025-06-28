@@ -3,6 +3,7 @@ extends StaticBody2D
 @export var wall_colour: Enums.Paint_Colour
 @export var animated_wall_sprite: AnimatedSprite2D
 @export var player_tracking_area: Area2D
+var player_currently_in_hitbox: bool
 
 const LAYER_RED_WALL := 1 << 1
 const LAYER_BLUE_WALL := 1 << 2
@@ -15,6 +16,15 @@ var player: Node
 func _ready() -> void:
 	player_tracking_area.collision_mask = LAYER_PLAYER
 	change_wall_colour(wall_colour)
+
+func _process(_delta: float) -> void:
+	if player_currently_in_hitbox and player:
+		# Re-evaluate wall interaction condition every frame
+		if player.current_player_colour != wall_colour:
+			player.currently_on_wall = true
+		else:
+			player.currently_on_wall = false
+
 
 func change_wall_colour(new_wall_colour: Enums.Paint_Colour) -> void:
 	wall_colour = new_wall_colour
@@ -33,6 +43,7 @@ func change_wall_colour(new_wall_colour: Enums.Paint_Colour) -> void:
 
 func _on_player_tracking_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		player_currently_in_hitbox = true
 		player = body
 		if body.current_player_colour != wall_colour:
 			body.currently_on_wall = true
@@ -42,5 +53,6 @@ func _on_player_tracking_area_body_entered(body: Node2D) -> void:
 
 func _on_player_tracking_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		player_currently_in_hitbox = false
 		body.currently_on_wall = false
 		print(body.currently_on_wall, " on wall!")

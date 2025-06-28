@@ -1,12 +1,4 @@
 TODO:
-	1. Make up to 12 levels - ENDING IT AT 10
-	2. Make a Main Menu - DONE
-	3. Update levels with new wall sprites - NOT HAPPENING
-	4. An Ending
 	
 Feedback from playtesters:
-	1. Need a tutorial level showing that you can throw buckets through same coloured blocks/walls.
-	2. Need to fix a bug where Players walk in to climbing wall, change it's colour, then is_on_wall isn't updated so they have to exit body to reset it.
 	3. Need to fix a bug where the paint bucket can hit two things at once (Player and Platform happened at once).
-	4. Need to add an icon for what colour of paint you're currently holding.
-	5. Need to be able to right click to stop throwing paint bucket.
