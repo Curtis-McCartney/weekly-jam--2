@@ -7,47 +7,44 @@
 [ext_resource type="PackedScene" uid="uid://e4p7ammoag8a" path="res://Scenes/double_platform.tscn" id="5_p3g8w"]
 [ext_resource type="PackedScene" uid="uid://bmwp7b5ndxabx" path="res://Scenes/climbing_wall.tscn" id="6_wyulo"]
 
-[node name="Level_9" type="Node2D"]
+[node name="Level_8" type="Node2D"]
 
 [node name="World_Border" parent="." instance=ExtResource("1_22gpn")]
 
 [node name="Player" parent="." instance=ExtResource("2_pyg1t")]
-position = Vector2(-249, 133)
+position = Vector2(-175, 131)
 
 [node name="Win_Door" parent="." instance=ExtResource("3_p3g8w")]
-position = Vector2(276, -82)
+position = Vector2(301, 106)
 
 [node name="Paint_Bucket_Collection" parent="." instance=ExtResource("4_wyulo")]
-position = Vector2(-33, 135)
+position = Vector2(-73, 134)
 bucket_colour = 2
-
-[node name="Paint_Bucket_Collection2" parent="." instance=ExtResource("4_wyulo")]
-position = Vector2(-181, -116)
-bucket_colour = 3
 
 [node name="Paint_Bucket_Collection3" parent="." instance=ExtResource("4_wyulo")]
-position = Vector2(94, -133)
+position = Vector2(-197, -106)
+bucket_colour = 1
+
+[node name="Paint_Bucket_Collection2" parent="." instance=ExtResource("4_wyulo")]
+position = Vector2(52, 128)
 bucket_colour = 2
 
-[node name="Platform5" parent="." instance=ExtResource("5_p3g8w")]
-position = Vector2(244, 13)
-wall_colour = 2
-
-[node name="Platform6" parent="." instance=ExtResource("5_p3g8w")]
-position = Vector2(93, 69)
-wall_colour = 2
-
 [node name="Climbing_Wall" parent="." instance=ExtResource("6_wyulo")]
-position = Vector2(262, 111)
-scale = Vector2(1, 0.880001)
-
-[node name="Climbing_Wall2" parent="." instance=ExtResource("6_wyulo")]
-position = Vector2(30, -63)
-scale = Vector2(1, 0.880001)
+position = Vector2(-272, 19)
+scale = Vector2(1, 2.32)
+wall_colour = 3
 
 [node name="Platform" parent="." instance=ExtResource("5_p3g8w")]
-position = Vector2(-180, -52)
+position = Vector2(-10, 97)
+rotation = 1.57079
+wall_colour = 3
 
 [node name="Platform2" parent="." instance=ExtResource("5_p3g8w")]
-position = Vector2(-76, 50)
+position = Vector2(96, -1)
+rotation = 3.14159
+wall_colour = 2
+
+[node name="Platform3" parent="." instance=ExtResource("5_p3g8w")]
+position = Vector2(204, 99)
+rotation = 4.71238
 wall_colour = 3

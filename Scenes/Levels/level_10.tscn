@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://e4p7ammoag8a" path="res://Scenes/double_platform.tscn" id="5_4c8hl"]
 [ext_resource type="PackedScene" uid="uid://bmwp7b5ndxabx" path="res://Scenes/climbing_wall.tscn" id="6_snwp0"]
 
-[node name="Level_10" type="Node2D"]
+[node name="Level_9" type="Node2D"]
 
 [node name="World_Border" parent="." instance=ExtResource("1_icg2m")]
 
@@ -15,17 +15,39 @@
 position = Vector2(-249, 133)
 
 [node name="Win_Door" parent="." instance=ExtResource("3_4c8hl")]
-position = Vector2(209, 20)
+position = Vector2(276, -82)
 
 [node name="Paint_Bucket_Collection" parent="." instance=ExtResource("4_snwp0")]
-position = Vector2(87, 131)
+position = Vector2(-33, 135)
 bucket_colour = 2
 
-[node name="Platform" parent="." instance=ExtResource("5_4c8hl")]
-position = Vector2(-160, -29)
-
 [node name="Paint_Bucket_Collection2" parent="." instance=ExtResource("4_snwp0")]
-position = Vector2(-112, 89)
+position = Vector2(-181, -116)
+bucket_colour = 3
+
+[node name="Paint_Bucket_Collection3" parent="." instance=ExtResource("4_snwp0")]
+position = Vector2(94, -133)
+bucket_colour = 2
+
+[node name="Platform5" parent="." instance=ExtResource("5_4c8hl")]
+position = Vector2(244, 13)
+wall_colour = 2
+
+[node name="Platform6" parent="." instance=ExtResource("5_4c8hl")]
+position = Vector2(93, 69)
+wall_colour = 2
 
 [node name="Climbing_Wall" parent="." instance=ExtResource("6_snwp0")]
-position = Vector2(17, 38)
+position = Vector2(262, 111)
+scale = Vector2(1, 0.880001)
+
+[node name="Climbing_Wall2" parent="." instance=ExtResource("6_snwp0")]
+position = Vector2(30, -63)
+scale = Vector2(1, 0.880001)
+
+[node name="Platform" parent="." instance=ExtResource("5_4c8hl")]
+position = Vector2(-180, -52)
+
+[node name="Platform2" parent="." instance=ExtResource("5_4c8hl")]
+position = Vector2(-76, 50)
+wall_colour = 3
