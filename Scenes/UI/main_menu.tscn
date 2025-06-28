@@ -244,6 +244,7 @@ text = "10"
 
 [node name="Next_Page_Button" type="Button" parent="Level_Select_Panel"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 545.0
 offset_top = 145.0
 offset_right = 629.0
@@ -255,6 +256,7 @@ text = ">"
 
 [node name="Previous_Page_Button" type="Button" parent="Level_Select_Panel"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 24.0
 offset_top = 145.0
 offset_right = 108.0

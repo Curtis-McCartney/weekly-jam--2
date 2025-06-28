@@ -37,7 +37,9 @@ func player_at_win_door():
 		tween.tween_property(player, "modulate:a", 0, 1)
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Restart"):
+	if !find_player():
+		return
+	if Input.is_action_just_pressed("Restart") && find_player().player_allowed_to_input:
 		call_deferred("load_level", current_level)
 
 func win_door_closed():

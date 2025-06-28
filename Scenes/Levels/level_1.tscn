@@ -36,10 +36,12 @@ text = "Hold M1 - Throw collected paint buckets!"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
-offset_left = 65.0
+offset_left = 44.0
 offset_top = -103.0
-offset_right = 277.0
-offset_bottom = -43.0
+offset_right = 295.0
+offset_bottom = -23.0
 theme = ExtResource("6_5f3p6")
-text = "R - To Restart"
+text = "R - To Restart
+
+Hold TAB - To see held paint bucket!"
 fit_content = true

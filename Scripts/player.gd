@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = %Player_Animated_Sprite
 @export var current_player_colour: Enums.Paint_Colour
 @export var currently_held_paint_can: Enums.Paint_Colour
+@onready var paint_border: Node2D = %Paint_Border
 var player_allowed_to_input: bool
 var currently_on_wall: bool = false
 
@@ -18,6 +19,13 @@ func _ready() -> void:
 	currently_held_paint_can = Enums.Paint_Colour.NONE
 	change_player_colour(Enums.Paint_Colour.RED)
 	player_allowed_to_input = true
+	paint_border.visible = false
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("Tab") && player_allowed_to_input:
+		paint_border.visible = true
+	if Input.is_action_just_released("Tab"):
+		paint_border.visible = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
