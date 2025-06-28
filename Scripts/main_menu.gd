@@ -2,6 +2,7 @@ extends Control
 
 var main_scene
 @export var level_select_panel: Panel
+@export var settings_panel: Panel
 var level_selecting_position = Vector2(-324, -183)
 var level_select_hiding_position = Vector2(-324, 389)
 
@@ -19,19 +20,30 @@ var level_select_hiding_position = Vector2(-324, 389)
 @onready var previous_page_button: Button = %Previous_Page_Button
 var current_page = 1
 
+
+@onready var speedrun_timer_button: Button = %Speedrun_Timer_Button
+
 func _ready() -> void:
 	main_scene = get_tree().current_scene
 	level_select_panel.global_position = level_select_hiding_position
+	settings_panel.global_position = level_select_hiding_position
+	if get_tree().current_scene.speedrun_timer_is_on:
+		speedrun_timer_button.add_theme_color_override("font_color", Color(0.0, 1.0, 0.0)) # Green
+		print("Green")
+	else:
+		speedrun_timer_button.add_theme_color_override("font_color", Color(1.0, 0.0, 0.0)) # Red
+		print("Red")
 
 func _on_new_game_button_pressed() -> void:
 	main_scene.current_level = 1
 	main_scene.load_level(main_scene.current_level)
+	get_tree().current_scene.find_child("Speedrun_Timer_Text").start()
 
 func _on_level_select_button_pressed() -> void:
 	open_level_select()
 
 func _on_settings_button_pressed() -> void:
-	pass # Replace with function body.
+	open_settings_menu()
 
 func _on_level_1_button_pressed() -> void:
 	main_scene.current_level = 1
@@ -140,3 +152,20 @@ func open_level_select():
 
 func close_level_select():
 	level_select_panel.global_position = level_select_hiding_position
+
+func open_settings_menu():
+	settings_panel.global_position = level_selecting_position
+
+func close_settings_menu():
+	settings_panel.global_position = level_select_hiding_position
+
+func _on_speedrun_timer_pressed() -> void:
+	if get_tree().current_scene.speedrun_timer_is_on:
+		speedrun_timer_button.add_theme_color_override("font_color", Color(1.0, 0.0, 0.0))
+		get_tree().current_scene.speedrun_timer_is_on = false
+	else:
+		speedrun_timer_button.add_theme_color_override("font_color", Color(0.0, 1.0, 0.0))
+		get_tree().current_scene.speedrun_timer_is_on = true
+
+func _on_leave_settings_button_pressed() -> void:
+	close_settings_menu()

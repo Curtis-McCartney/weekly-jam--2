@@ -5,5 +5,6 @@ enum Paint_Colour {
 	NONE,
 	RED,
 	BLUE,
-	YELLOW
+	YELLOW,
+	BLACK
 }

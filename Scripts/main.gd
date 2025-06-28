@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var player_scene: PackedScene = preload("res://Scenes/player.tscn")
 @onready var level_holder: Node2D = %Level_Holder
+@onready var speedrun_time_text: RichTextLabel = %Speedrun_Timer_Text
+var speedrun_timer_is_on = false
 var current_level: int
 @onready var main_menu_scene: PackedScene = preload("res://Scenes/UI/main_menu.tscn")
 @onready var level_1_scene: PackedScene = preload("res://Scenes/Levels/level_1.tscn")
@@ -25,6 +27,7 @@ var tween: Tween
 
 func _ready() -> void:
 	# Call Main Menu
+	speedrun_timer_is_on = false
 	current_level = 0
 	load_level(current_level)
 
@@ -102,7 +105,7 @@ func find_player() -> Node:
 	if player:
 		return player
 	else:
-		print("Player not found!")
+		#print("Player not found!")
 		return null
 
 func play_pickup_bucket_sound_effect():

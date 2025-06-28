@@ -1,7 +1,8 @@
 TODO:
-	1. Make up to 12 levels
-	2. Make a Main Menu
-	3. Update levels with new wall sprites
+	1. Make up to 12 levels - ENDING IT AT 10
+	2. Make a Main Menu - DONE
+	3. Update levels with new wall sprites - NOT HAPPENING
+	4. An Ending
 	
 Feedback from playtesters:
 	1. Need a tutorial level showing that you can throw buckets through same coloured blocks/walls.

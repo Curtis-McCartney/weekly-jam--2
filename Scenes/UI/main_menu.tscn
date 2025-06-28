@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bo36c4g70r2il" path="res://Assets/Placeholder/world_border.png" id="2_i2xx2"]
 [ext_resource type="Theme" uid="uid://dp3ugvrp5snhw" path="res://Scenes/UI/paint_theme.tres" id="2_o14dv"]
 
-[node name="Main_Menu" type="Control" node_paths=PackedStringArray("level_select_panel")]
+[node name="Main_Menu" type="Control" node_paths=PackedStringArray("level_select_panel", "settings_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5wsvm")
 level_select_panel = NodePath("Level_Select_Panel")
+settings_panel = NodePath("Settings_Panel")
 
 [node name="New_Game_Button" type="Button" parent="."]
 layout_mode = 1
@@ -266,6 +267,68 @@ theme = ExtResource("2_o14dv")
 theme_override_font_sizes/font_size = 64
 text = "<"
 
+[node name="Settings_Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -324.0
+offset_top = -183.0
+offset_right = -324.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Settings_Panel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 634.0
+offset_bottom = 353.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings_Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 161.0
+offset_top = 26.0
+offset_right = 465.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/normal_font_size = 34
+text = "Settings"
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speedrun_Timer_Button" type="Button" parent="Settings_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 28.0
+offset_top = 122.0
+offset_right = 339.0
+offset_bottom = 170.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Speedrun Timer"
+
+[node name="Leave_Settings_Button" type="Button" parent="Settings_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 24.0
+offset_top = 255.0
+offset_right = 108.0
+offset_bottom = 341.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "<"
+
 [connection signal="pressed" from="New_Game_Button" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="Level_Select_Button" to="." method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="Settings_Button" to="." method="_on_settings_button_pressed"]
@@ -281,3 +344,5 @@ text = "<"
 [connection signal="pressed" from="Level_Select_Panel/Level_10_Button" to="." method="_on_level_10_button_pressed"]
 [connection signal="pressed" from="Level_Select_Panel/Next_Page_Button" to="." method="_on_next_page_button_pressed"]
 [connection signal="pressed" from="Level_Select_Panel/Previous_Page_Button" to="." method="_on_previous_page_button_pressed"]
+[connection signal="pressed" from="Settings_Panel/Speedrun_Timer_Button" to="." method="_on_speedrun_timer_pressed"]
+[connection signal="pressed" from="Settings_Panel/Leave_Settings_Button" to="." method="_on_leave_settings_button_pressed"]

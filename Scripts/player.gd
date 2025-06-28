@@ -49,6 +49,8 @@ func _physics_process(delta: float) -> void:
 				animated_sprite.play("Blue_Run")
 			Enums.Paint_Colour.YELLOW:
 				animated_sprite.play("Yellow_Run")
+			Enums.Paint_Colour.BLACK:
+				animated_sprite.play("Black_Idle")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	
@@ -67,6 +69,8 @@ func _physics_process(delta: float) -> void:
 				animated_sprite.play("Blue_Idle")
 			Enums.Paint_Colour.YELLOW:
 				animated_sprite.play("Yellow_Idle")
+			Enums.Paint_Colour.BLACK:
+				animated_sprite.play("Black_Idle")
 	
 	move_and_slide()
 
@@ -84,6 +88,10 @@ func change_player_colour(new_player_colour: Enums.Paint_Colour):
 		Enums.Paint_Colour.YELLOW:
 			collision_layer = LAYER_PLAYER
 			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_BLUE_WALL
+		Enums.Paint_Colour.BLACK:
+			collision_layer = 0
+			collision_mask = 0
+			get_tree().current_scene.find_child("Level_Holder").get_child(0).end_game()
 	current_player_colour = new_player_colour
 
 func at_win_door():

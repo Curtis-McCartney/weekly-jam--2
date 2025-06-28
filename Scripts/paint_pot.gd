@@ -23,6 +23,9 @@ func _ready():
 		Enums.Paint_Colour.YELLOW:
 			paint_pot_sprite.play("Yellow")
 			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_BLUE_WALL
+		Enums.Paint_Colour.BLACK:
+			paint_pot_sprite.play("Black")
+			collision_mask = LAYER_BLACK | LAYER_RED_WALL | LAYER_BLUE_WALL | LAYER_YELLOW_WALL
 	
 	# Set spin speed (degrees per second → radians per second)
 	angular_velocity = deg_to_rad(speed)  # 60 degrees/sec clockwise

@@ -11,6 +11,8 @@ func _ready() -> void:
 			animated_sprite.play("Blue")
 		Enums.Paint_Colour.YELLOW:
 			animated_sprite.play("Yellow")
+		Enums.Paint_Colour.BLACK:
+			animated_sprite.play("Black")
 
 func _on_body_entered(body: Node2D) -> void:
 	print("Body entered")

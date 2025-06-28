@@ -1,9 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtdjof8npieia"]
+[gd_scene load_steps=12 format=3 uid="uid://dtdjof8npieia"]
 
 [ext_resource type="Script" uid="uid://d1qynydotn7hj" path="res://Scripts/paint_pot.gd" id="1_d6j7m"]
 [ext_resource type="Texture2D" uid="uid://cn70eo2kxm6ms" path="res://Assets/Blue Paint bucket (32x32).png" id="2_3ygn3"]
+[ext_resource type="Texture2D" uid="uid://dts34018kymme" path="res://Assets/Black Paint bucket (32x32).png" id="2_756t3"]
 [ext_resource type="Texture2D" uid="uid://bvbwq2g80wdqj" path="res://Assets/Red Paint bucket (32x32).png" id="3_756t3"]
 [ext_resource type="Texture2D" uid="uid://0w3do0ofed8d" path="res://Assets/Yellow Paint bucket (32x32).png" id="4_sa5de"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa5de"]
+atlas = ExtResource("2_756t3")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_plpku"]
 atlas = ExtResource("2_3ygn3")
@@ -19,6 +24,14 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aiyqm"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa5de")
+}],
+"loop": true,
+"name": &"Black",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_plpku")
@@ -58,7 +71,7 @@ script = ExtResource("1_d6j7m")
 [node name="Paint_Pot_Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_aiyqm")
-animation = &"Red"
+animation = &"Black"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vhnaa")

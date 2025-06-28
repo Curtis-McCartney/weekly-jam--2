@@ -1,11 +1,16 @@
-[gd_scene load_steps=39 format=3 uid="uid://cjvvw4wiqfvkm"]
+[gd_scene load_steps=41 format=3 uid="uid://cjvvw4wiqfvkm"]
 
 [ext_resource type="Script" uid="uid://3rvwq1ip1tah" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://24rra1lkjdbn" path="res://Scripts/paint_pot_spawner.gd" id="2_fkybt"]
+[ext_resource type="Texture2D" uid="uid://cutwlw2bnq7id" path="res://Assets/black_paint_brush_still.png" id="3_3smsa"]
 [ext_resource type="Texture2D" uid="uid://dwteh2ooq2n1q" path="res://Assets/Blue Paint brush Run (32x32).png" id="3_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://dwxmqkmf5ovbe" path="res://Assets/Red Paint brush Run (32x32).png" id="4_fkybt"]
 [ext_resource type="Texture2D" uid="uid://bkrkaxgs3m78j" path="res://Assets/Yellow Paint brush Run (32x32).png" id="5_x3wgy"]
 [ext_resource type="PackedScene" uid="uid://d15833pvdwoig" path="res://Scenes/UI/paint_border.tscn" id="6_x3wgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv4vc"]
+atlas = ExtResource("3_3smsa")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
 atlas = ExtResource("3_x3wgy")
@@ -129,6 +134,14 @@ region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v0iea"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv4vc")
+}],
+"loop": true,
+"name": &"Black_Idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fkybt")
@@ -267,8 +280,7 @@ unique_name_in_owner = true
 position = Vector2(0, 1.19209e-07)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_v0iea")
-animation = &"Blue_Idle"
-frame_progress = 0.406466
+animation = &"Black_Idle"
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

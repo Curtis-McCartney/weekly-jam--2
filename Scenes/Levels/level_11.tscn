@@ -1,20 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfyd5jtn0g84c"]
+[gd_scene load_steps=6 format=3 uid="uid://dfyd5jtn0g84c"]
 
 [ext_resource type="PackedScene" uid="uid://dqdcu6olaado5" path="res://Scenes/world_border.tscn" id="1_njv6j"]
+[ext_resource type="Script" uid="uid://chlf3lwkkpntt" path="res://Scripts/end_game.gd" id="1_pdmwf"]
 [ext_resource type="PackedScene" uid="uid://cjvvw4wiqfvkm" path="res://Scenes/player.tscn" id="2_pdmwf"]
-[ext_resource type="PackedScene" uid="uid://c8t7uut3ow4lp" path="res://Scenes/win_door.tscn" id="3_pmgmy"]
 [ext_resource type="PackedScene" uid="uid://d1bwgdyekn17q" path="res://Scenes/paint_bucket_collection.tscn" id="4_154a5"]
+[ext_resource type="Theme" uid="uid://dp3ugvrp5snhw" path="res://Scenes/UI/paint_theme.tres" id="4_njv6j"]
 
 [node name="Level_11" type="Node2D"]
+script = ExtResource("1_pdmwf")
 
 [node name="World_Border" parent="." instance=ExtResource("1_njv6j")]
 
 [node name="Player" parent="." instance=ExtResource("2_pdmwf")]
 position = Vector2(-249, 133)
 
-[node name="Win_Door" parent="." instance=ExtResource("3_pmgmy")]
-position = Vector2(249, 107)
-
 [node name="Paint_Bucket_Collection" parent="." instance=ExtResource("4_154a5")]
-position = Vector2(87, 131)
-bucket_colour = 2
+position = Vector2(1, 131)
+bucket_colour = 4
+
+[node name="You_Win_Text" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+offset_left = -170.0
+offset_top = -59.0
+offset_right = 185.0
+offset_bottom = 19.0
+theme = ExtResource("4_njv6j")
+theme_override_font_sizes/normal_font_size = 64
+text = "You Win!"
+fit_content = true
+
+[node name="Instructions" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+offset_left = -170.0
+offset_top = 10.0
+offset_right = 185.0
+offset_bottom = 88.0
+theme = ExtResource("4_njv6j")
+text = "Press enter to go back to main menu"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="You_Win_Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="You_Win_Timer" to="." method="_on_you_win_timer_timeout"]

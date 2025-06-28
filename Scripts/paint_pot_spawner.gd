@@ -7,25 +7,45 @@ var pot_to_instantiate
 var pot_made: bool
 var show_trajectory := false
 var cached_trajectory_dir := Vector2.ZERO
+var cancelled_pot_throw := false
 
 func _ready() -> void:
 	pot_made = false
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Mouse_Right_Click"):
+		if Input.is_action_pressed("Mouse_Click"):
+			disable_paint_pot()
+
+
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("Mouse_Click"):
+		if Input.is_action_just_pressed("Mouse_Right_Click"):
+			print("Got right clicked!")
+			cancelled_pot_throw = true
+			disable_paint_pot()
+			return
+
 		if player.currently_held_paint_can == Enums.Paint_Colour.NONE:
 			return
-		show_trajectory = true
-		ready_paint_pot()
-		queue_redraw()
+
+		if not cancelled_pot_throw:
+			show_trajectory = true
+			ready_paint_pot()
+			queue_redraw()
+
 	elif Input.is_action_just_released("Mouse_Click"):
 		if player.currently_held_paint_can == Enums.Paint_Colour.NONE:
 			return
-		show_trajectory = false
-		shoot_pot()
-		queue_redraw()  # Clear the line
 
-		
+		show_trajectory = false
+		if pot_made and not cancelled_pot_throw:
+			shoot_pot()
+			queue_redraw()
+
+		# Reset cancel flag on release
+		cancelled_pot_throw = false
+
 func ready_paint_pot():
 	if !pot_made:
 		pot_to_instantiate = paint_pot_scene.instantiate()
@@ -35,6 +55,11 @@ func ready_paint_pot():
 	pot_to_instantiate.global_position = global_position
 	pot_to_instantiate.paint_colour = player.currently_held_paint_can
 
+func disable_paint_pot():
+	pot_made = false
+	pot_to_instantiate = null
+	show_trajectory = false
+	queue_redraw()  # Clear the line
 
 func shoot_pot():
 	get_tree().current_scene.find_child("Level_Holder").get_child(0).add_child(pot_to_instantiate)
