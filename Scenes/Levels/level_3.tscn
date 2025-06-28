@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b56t5njs85gfw"]
+[gd_scene load_steps=7 format=3 uid="uid://b56t5njs85gfw"]
 
 [ext_resource type="PackedScene" uid="uid://dqdcu6olaado5" path="res://Scenes/world_border.tscn" id="1_nfly3"]
 [ext_resource type="PackedScene" uid="uid://cjvvw4wiqfvkm" path="res://Scenes/player.tscn" id="2_t8c31"]
 [ext_resource type="PackedScene" uid="uid://e4p7ammoag8a" path="res://Scenes/double_platform.tscn" id="3_rc141"]
 [ext_resource type="PackedScene" uid="uid://c8t7uut3ow4lp" path="res://Scenes/win_door.tscn" id="4_t8c31"]
 [ext_resource type="PackedScene" uid="uid://d1bwgdyekn17q" path="res://Scenes/paint_bucket_collection.tscn" id="5_rc141"]
-[ext_resource type="FontFile" uid="uid://cuew40xqsu2vs" path="res://Assets/Fake Receipt.otf" id="6_yy6i0"]
-
-[sub_resource type="Theme" id="Theme_yy6i0"]
-default_font = ExtResource("6_yy6i0")
+[ext_resource type="Theme" uid="uid://dp3ugvrp5snhw" path="res://Scenes/UI/paint_theme.tres" id="6_167vu"]
 
 [node name="Level_3" type="Node2D"]
 
@@ -58,7 +55,7 @@ offset_left = -268.0
 offset_top = -122.0
 offset_right = -113.0
 offset_bottom = -42.0
-theme = SubResource("Theme_yy6i0")
+theme = ExtResource("6_167vu")
 text = "You can only handle one bucket at once!"
 fit_content = true
 
@@ -67,6 +64,6 @@ offset_left = 110.0
 offset_top = -122.0
 offset_right = 265.0
 offset_bottom = -42.0
-theme = SubResource("Theme_yy6i0")
+theme = ExtResource("6_167vu")
 text = "Use your buckets wisely before discarding them!"
 fit_content = true

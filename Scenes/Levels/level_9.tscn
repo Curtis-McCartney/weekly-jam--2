@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://e4p7ammoag8a" path="res://Scenes/double_platform.tscn" id="5_p3g8w"]
 [ext_resource type="PackedScene" uid="uid://bmwp7b5ndxabx" path="res://Scenes/climbing_wall.tscn" id="6_wyulo"]
 
-[node name="Level_8" type="Node2D"]
+[node name="Level_9" type="Node2D"]
 
 [node name="World_Border" parent="." instance=ExtResource("1_22gpn")]
 

@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dp3ugvrp5snhw"]
+
+[ext_resource type="FontFile" uid="uid://cuew40xqsu2vs" path="res://Scenes/UI/Fake Receipt.otf" id="1_ls5ab"]
+
+[resource]
+default_font = ExtResource("1_ls5ab")

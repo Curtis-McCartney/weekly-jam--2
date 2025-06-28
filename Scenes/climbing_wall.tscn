@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmwp7b5ndxabx"]
+[gd_scene load_steps=10 format=3 uid="uid://bmwp7b5ndxabx"]
 
 [ext_resource type="Texture2D" uid="uid://cw5mhf6njao06" path="res://Assets/Placeholder/double_platform_spritesheet.png" id="1_3e5fb"]
 [ext_resource type="Script" uid="uid://cxjjb8ammus31" path="res://Scripts/climbing_wall.gd" id="1_5gooc"]
-[ext_resource type="FontFile" uid="uid://cuew40xqsu2vs" path="res://Assets/Fake Receipt.otf" id="3_jdk16"]
+[ext_resource type="Theme" uid="uid://dp3ugvrp5snhw" path="res://Scenes/UI/paint_theme.tres" id="3_jdk16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gooc"]
 atlas = ExtResource("1_3e5fb")
@@ -43,9 +43,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Theme" id="Theme_svwyb"]
-default_font = ExtResource("3_jdk16")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6h1d"]
 size = Vector2(62, 128)
 
@@ -70,7 +67,7 @@ offset_left = -27.0
 offset_top = -12.0
 offset_right = 29.0
 offset_bottom = 9.0
-theme = SubResource("Theme_svwyb")
+theme = ExtResource("3_jdk16")
 text = "Climb"
 fit_content = true
 

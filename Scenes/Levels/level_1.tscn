@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b78vqnajfjywj"]
+[gd_scene load_steps=7 format=3 uid="uid://b78vqnajfjywj"]
 
 [ext_resource type="PackedScene" uid="uid://dqdcu6olaado5" path="res://Scenes/world_border.tscn" id="1_tlcug"]
 [ext_resource type="PackedScene" uid="uid://cjvvw4wiqfvkm" path="res://Scenes/player.tscn" id="2_3mqfk"]
 [ext_resource type="PackedScene" uid="uid://e4p7ammoag8a" path="res://Scenes/double_platform.tscn" id="3_iixi8"]
 [ext_resource type="PackedScene" uid="uid://c8t7uut3ow4lp" path="res://Scenes/win_door.tscn" id="4_iixi8"]
 [ext_resource type="PackedScene" uid="uid://d1bwgdyekn17q" path="res://Scenes/paint_bucket_collection.tscn" id="5_cyadu"]
-[ext_resource type="FontFile" uid="uid://cuew40xqsu2vs" path="res://Assets/Fake Receipt.otf" id="6_xgxfi"]
-
-[sub_resource type="Theme" id="Theme_5f3p6"]
-default_font = ExtResource("6_xgxfi")
+[ext_resource type="Theme" uid="uid://dp3ugvrp5snhw" path="res://Scenes/UI/paint_theme.tres" id="6_5f3p6"]
 
 [node name="Level_1" type="Node2D"]
 
@@ -34,7 +31,7 @@ offset_left = -248.0
 offset_top = -101.0
 offset_right = -36.0
 offset_bottom = -61.0
-theme = SubResource("Theme_5f3p6")
+theme = ExtResource("6_5f3p6")
 text = "Hold M1 - Throw collected paint buckets!"
 fit_content = true
 
@@ -43,6 +40,6 @@ offset_left = 65.0
 offset_top = -103.0
 offset_right = 277.0
 offset_bottom = -43.0
-theme = SubResource("Theme_5f3p6")
+theme = ExtResource("6_5f3p6")
 text = "R - To Restart"
 fit_content = true

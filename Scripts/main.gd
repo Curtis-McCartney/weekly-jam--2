@@ -25,7 +25,7 @@ var tween: Tween
 
 func _ready() -> void:
 	# Call Main Menu
-	current_level = 1
+	current_level = 0
 	load_level(current_level)
 
 func player_at_win_door():

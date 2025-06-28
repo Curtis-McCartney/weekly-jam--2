@@ -1,25 +1,281 @@
-[gd_scene format=3 uid="uid://dvwa56tte74f3"]
+[gd_scene load_steps=4 format=3 uid="uid://dvwa56tte74f3"]
 
-[node name="Main_Menu" type="Control"]
+[ext_resource type="Script" uid="uid://dt7y387pyfgsb" path="res://Scripts/main_menu.gd" id="1_5wsvm"]
+[ext_resource type="Texture2D" uid="uid://bo36c4g70r2il" path="res://Assets/Placeholder/world_border.png" id="2_i2xx2"]
+[ext_resource type="Theme" uid="uid://dp3ugvrp5snhw" path="res://Scenes/UI/paint_theme.tres" id="2_o14dv"]
+
+[node name="Main_Menu" type="Control" node_paths=PackedStringArray("level_select_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5wsvm")
+level_select_panel = NodePath("Level_Select_Panel")
+
+[node name="New_Game_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -101.0
+offset_right = 84.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+text = "New Game"
+
+[node name="Level_Select_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -14.0
+offset_right = 84.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+text = "Level Select"
+
+[node name="Settings_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = 73.0
+offset_right = 84.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+text = "Settings"
+
+[node name="WorldBorder" type="Sprite2D" parent="."]
+texture = ExtResource("2_i2xx2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -118.0
+offset_top = -158.0
+offset_right = 118.0
+offset_bottom = -108.0
 grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 32
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/normal_font_size = 34
 text = "Main Menu"
-fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Level_Select_Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -324.0
+offset_top = -183.0
+offset_right = -324.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Level_Select_Panel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 634.0
+offset_bottom = 353.0
+color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Level_Select_Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 161.0
+offset_top = 26.0
+offset_right = 465.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/normal_font_size = 34
+text = "Level Select"
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level_1_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 153.0
+offset_top = 83.0
+offset_right = 237.0
+offset_bottom = 169.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "1"
+
+[node name="Level_2_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 396.0
+offset_top = 83.0
+offset_right = 480.0
+offset_bottom = 169.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "2"
+
+[node name="Level_3_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 154.0
+offset_top = 234.0
+offset_right = 238.0
+offset_bottom = 320.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "3"
+
+[node name="Level_4_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 396.0
+offset_top = 234.0
+offset_right = 480.0
+offset_bottom = 320.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "4"
+
+[node name="Level_5_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 153.0
+offset_top = 83.0
+offset_right = 237.0
+offset_bottom = 169.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "5"
+
+[node name="Level_6_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 396.0
+offset_top = 83.0
+offset_right = 480.0
+offset_bottom = 169.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "6"
+
+[node name="Level_7_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 154.0
+offset_top = 234.0
+offset_right = 238.0
+offset_bottom = 320.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "7"
+
+[node name="Level_8_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 396.0
+offset_top = 234.0
+offset_right = 480.0
+offset_bottom = 320.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "8"
+
+[node name="Level_9_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 153.0
+offset_top = 83.0
+offset_right = 237.0
+offset_bottom = 169.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "9"
+
+[node name="Level_10_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 392.0
+offset_top = 83.0
+offset_right = 487.0
+offset_bottom = 169.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "10"
+
+[node name="Next_Page_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+offset_left = 545.0
+offset_top = 145.0
+offset_right = 629.0
+offset_bottom = 231.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = ">"
+
+[node name="Previous_Page_Button" type="Button" parent="Level_Select_Panel"]
+unique_name_in_owner = true
+offset_left = 24.0
+offset_top = 145.0
+offset_right = 108.0
+offset_bottom = 231.0
+focus_mode = 0
+theme = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 64
+text = "<"
+
+[connection signal="pressed" from="New_Game_Button" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Level_Select_Button" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Level_1_Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Level_2_Button" to="." method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Level_3_Button" to="." method="_on_level_3_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Level_4_Button" to="." method="_on_level_4_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Level_5_Button" to="." method="_on_level_5_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Level_6_Button" to="." method="_on_level_6_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Level_7_Button" to="." method="_on_level_7_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Level_8_Button" to="." method="_on_level_8_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Level_9_Button" to="." method="_on_level_9_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Level_10_Button" to="." method="_on_level_10_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Next_Page_Button" to="." method="_on_next_page_button_pressed"]
+[connection signal="pressed" from="Level_Select_Panel/Previous_Page_Button" to="." method="_on_previous_page_button_pressed"]

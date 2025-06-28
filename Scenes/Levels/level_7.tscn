@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ms2usenadmoi"]
+[gd_scene load_steps=8 format=3 uid="uid://ms2usenadmoi"]
 
 [ext_resource type="PackedScene" uid="uid://dqdcu6olaado5" path="res://Scenes/world_border.tscn" id="1_10co4"]
 [ext_resource type="PackedScene" uid="uid://cjvvw4wiqfvkm" path="res://Scenes/player.tscn" id="2_dbpl7"]
@@ -6,10 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d1bwgdyekn17q" path="res://Scenes/paint_bucket_collection.tscn" id="4_qhxxe"]
 [ext_resource type="PackedScene" uid="uid://bmwp7b5ndxabx" path="res://Scenes/climbing_wall.tscn" id="5_dbpl7"]
 [ext_resource type="PackedScene" uid="uid://e4p7ammoag8a" path="res://Scenes/double_platform.tscn" id="6_hubum"]
-[ext_resource type="FontFile" uid="uid://cuew40xqsu2vs" path="res://Assets/Fake Receipt.otf" id="7_qhxxe"]
-
-[sub_resource type="Theme" id="Theme_reooa"]
-default_font = ExtResource("7_qhxxe")
+[ext_resource type="Theme" uid="uid://dp3ugvrp5snhw" path="res://Scenes/UI/paint_theme.tres" id="7_qhxxe"]
 
 [node name="Level_7" type="Node2D"]
 
@@ -48,6 +45,6 @@ offset_left = 122.0
 offset_top = -135.0
 offset_right = 277.0
 offset_bottom = -91.0
-theme = SubResource("Theme_reooa")
+theme = ExtResource("7_qhxxe")
 text = "Hold W - Climb Up Walls"
 fit_content = true

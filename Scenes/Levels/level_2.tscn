@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwrrhs1h4ml4q"]
+[gd_scene load_steps=7 format=3 uid="uid://cwrrhs1h4ml4q"]
 
 [ext_resource type="PackedScene" uid="uid://dqdcu6olaado5" path="res://Scenes/world_border.tscn" id="1_oylv5"]
 [ext_resource type="PackedScene" uid="uid://cjvvw4wiqfvkm" path="res://Scenes/player.tscn" id="2_w2ac1"]
 [ext_resource type="PackedScene" uid="uid://e4p7ammoag8a" path="res://Scenes/double_platform.tscn" id="3_ovj6s"]
 [ext_resource type="PackedScene" uid="uid://d1bwgdyekn17q" path="res://Scenes/paint_bucket_collection.tscn" id="4_w2ac1"]
 [ext_resource type="PackedScene" uid="uid://c8t7uut3ow4lp" path="res://Scenes/win_door.tscn" id="5_ovj6s"]
-[ext_resource type="FontFile" uid="uid://cuew40xqsu2vs" path="res://Assets/Fake Receipt.otf" id="6_8qsmg"]
-
-[sub_resource type="Theme" id="Theme_fphuk"]
-default_font = ExtResource("6_8qsmg")
+[ext_resource type="Theme" uid="uid://dp3ugvrp5snhw" path="res://Scenes/UI/paint_theme.tres" id="6_8qsmg"]
 
 [node name="Level_2" type="Node2D"]
 
@@ -34,7 +31,7 @@ offset_left = -248.0
 offset_top = -101.0
 offset_right = -1.0
 offset_bottom = -61.0
-theme = SubResource("Theme_fphuk")
+theme = ExtResource("6_8qsmg")
 text = "Your paint bucket can even hit yourself!"
 fit_content = true
 
@@ -43,6 +40,6 @@ offset_left = 44.0
 offset_top = -101.0
 offset_right = 291.0
 offset_bottom = -61.0
-theme = SubResource("Theme_fphuk")
+theme = ExtResource("6_8qsmg")
 text = "(Remember, r to restart!)"
 fit_content = true
